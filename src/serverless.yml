@@ -1,0 +1,21 @@
+service: 'Support-Wheel-of-Fate'
+
+custom:
+  webpackIncludeModules:
+    packagePath: '../package.json'
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dummy
+  region: us-east-1
+  environment:
+    environment: dummy
+
+functions:
+  getEngineers:
+    handler: handler.get
+    events:
+      - http:
+          path: "/get"
+          method: get
